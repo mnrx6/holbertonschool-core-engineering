@@ -6,4 +6,4 @@ for i in "abcdefghijklmnopqrstuvwxyz":
     if i != "e" and i != "q":
         result = result + i
 
-print("{}".format(result))
+print("{}".format(result), end="")
