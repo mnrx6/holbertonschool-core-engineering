@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+"""Defines a Square class."""
 
-class Square :
+
+class Square:
     """Represents a square."""
+
     def __init__(self, size=0):
         """Initialize a square."""
         self.size = size
@@ -10,16 +13,18 @@ class Square :
     def size(self):
         """Return the size."""
         return self.__size
+
     @size.setter
-        def size(self, value):
-            """Set the size."""
-            if type(value) is not int:
-                return TypeError("size must be an integer")
-            if value < 0:
-                return ValueError("size must be >= 0")
+    def size(self, value):
+        """Set the size."""
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
 
-            self.__size = value
+        if value < 0:
+            raise ValueError("size must be >= 0")
 
-     def area(self):
+        self.__size = value
+
+    def area(self):
         """Return the area of the square."""
-        return self.__size * self.__size   
+        return self.__size * self.__size
