@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Define the Rectangle class."""
+"""Define the Square class."""
 
 
 Rectangle = __import__("2-rectangle").Rectangle
 
+
 class Square(Rectangle):
+    """Represent a square."""
+
     def __init__(self, size):
+        """Initialize a square."""
         self.integer_validator("size", size)
 
         self.__size = size
