@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Module for reading a text file."""
 
 
 def read_file(filename=""):
