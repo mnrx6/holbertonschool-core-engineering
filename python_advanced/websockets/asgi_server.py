@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 from starlette.applications import Starlette
-from starlette.responses import HTMLResponse
-from starlette.routing import Route, WebSocketRoute
+from starlette.responses import FileResponse
+from starlette.routing import Route, WebSocketRoute, Mount
+from starlette.staticfiles import StaticFiles
 
 
 async def homepage(request):
-    return HTMLResponse("<h1>WebSocket Echo</h1>")
+    return FileResponse("index.html")
 
 
 async def websocket_endpoint(websocket):
@@ -18,4 +19,5 @@ async def websocket_endpoint(websocket):
 app = Starlette(routes=[
     Route("/", homepage),
     WebSocketRoute("/ws", websocket_endpoint),
+    Mount("/static", app=StaticFiles(directory="."), name="static"),
 ])
